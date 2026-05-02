@@ -1,48 +1,68 @@
-﻿using Godot;
-using System;
+﻿using System;
+using System.Threading.Tasks;
+using Godot;
 using UISystem.Constants;
 
 namespace UISystem.Helpers;
+
+/// <summary>
+/// Helper class to fade controls.
+/// </summary>
 public static class Fader
 {
-
     private const float TransitionDuration = 0.25f;
 
+    /// <summary>
+    /// Initializes control by setting alpha of the target control's modulate to 0.
+    /// </summary>
+    /// <param name="target">Target control.</param>
     public static void Init(Control target)
     {
         target.Modulate = new Color(target.Modulate, 0);
     }
 
-    public static void Show(SceneTree tree, Control target, Action onComplete = null, bool instant = false)
+    /// <summary>
+    /// Tweens the alpha value of the target control to 1.
+    /// </summary>
+    /// <param name="tree">Scene tree.</param>
+    /// <param name="target">Target control.</param>
+    /// <param name="instant">Whether transition should happen instantly.</param>
+    public static async Task Show(SceneTree tree, Control target, bool instant = false)
     {
         var targetColor = new Color(target.Modulate, 1);
         if (instant)
         {
-            InstantChange(target, targetColor, onComplete);
+            InstantChange(target, targetColor);
             return;
         }
 
-        TweenColor(tree, target, targetColor, onComplete);
+        await TweenColor(tree, target, targetColor);
     }
 
-    public static void Hide(SceneTree tree, Control target, Action onComplete = null, bool instant = false)
+    /// <summary>
+    /// Tweens the alpha value of the target control to 0.
+    /// </summary>
+    /// <param name="tree">Scene tree.</param>
+    /// <param name="target">Target control.</param>
+    /// <param name="instant">Whether transition should happen instantly.</param>
+    public static async Task Hide(SceneTree tree, Control target, bool instant = false)
     {
         var targetColor = new Color(target.Modulate, 0);
         if (instant)
         {
-            InstantChange(target, targetColor, onComplete);
+            InstantChange(target, targetColor);
             return;
         }
 
-        TweenColor(tree, target, targetColor, onComplete);
+        await TweenColor(tree, target, targetColor);
     }
 
-    private static void TweenColor(SceneTree tree, Control target, Color targetColor, Action onComplete = null)
+    private static async Task TweenColor(SceneTree tree, Control target, Color targetColor)
     {
         Tween tween = tree.CreateTween();
         tween.SetPauseMode(Tween.TweenPauseMode.Process);
         tween.TweenProperty(target, PropertyConstants.Modulate, targetColor, TransitionDuration);
-        tween.TweenCallback(Callable.From(() => onComplete?.Invoke()));
+        await tree.ToSignal(tween, Tween.SignalName.Finished);
     }
 
     private static void InstantChange(Control target, Color targetColor, Action onComplete = null)
@@ -50,5 +70,4 @@ public static class Fader
         target.Modulate = targetColor;
         onComplete?.Invoke();
     }
-
 }

@@ -1,24 +1,36 @@
 ﻿using Godot;
 using UISystem.Core.PopupSystem;
-using UISystem.Elements;
 using UISystem.Elements.ElementViews;
 using UISystem.Views;
 
 namespace UISystem.PopupSystem;
+
+/// <summary>
+/// Base class for popup views.
+/// </summary>
 public abstract partial class PopupView : ViewBase, IPopupView
 {
+    [Export] private Control _fadeObjectsContainer;
+    [Export] private Control _panel;
+    [Export] private Label _messageLabel;
+    [Export] private ResizableControlView _messageMask;
 
-    [Export] protected Control fadeObjectsContainer;
-    [Export] protected Control panel;
-    [Export] private Label messageLabel;
-    [Export] protected ResizableControlView messageMask;
+    /// <summary>
+    /// Gets fade objects container.
+    /// </summary>
+    public Control FadeObjectsContainer => _fadeObjectsContainer;
 
-    public Control FadeObjectsContainer => fadeObjectsContainer;
-    public Control Panel => panel;
-    public Label Message { set => messageLabel = value; }
-    public ResizableControlView MessageMask => messageMask;
-    public abstract IFocusableControl DefaultSelectedElement { get; }
+    /// <summary>
+    /// Gets panel.
+    /// </summary>
+    public Control Panel => _panel;
 
+    /// <summary>
+    /// Gets message mask resizable control.
+    /// </summary>
+    public ResizableControlView MessageMask => _messageMask;
+
+    /// <inheritdoc/>
     public override void FocusElement()
     {
         if (DefaultSelectedElement?.IsValidElement() == true)
@@ -27,8 +39,9 @@ public abstract partial class PopupView : ViewBase, IPopupView
         }
     }
 
+    /// <inheritdoc/>
     public void SetMessage(string message)
     {
-        messageLabel.Text = message;
+        _messageLabel.Text = message;
     }
 }

@@ -1,13 +1,29 @@
-﻿using Godot;
-using System;
+﻿using System.Threading.Tasks;
+using Godot;
 using UISystem.Core.Transitions;
 using UISystem.Helpers;
 
 namespace UISystem.Transitions;
+
+/// <summary>
+/// Fade transition.
+/// </summary>
 public class FadeTransition : IViewTransition
 {
+    private readonly Control _target;
 
     private SceneTree _sceneTree;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="FadeTransition"/> class.
+    /// </summary>
+    /// <param name="target">target control.</param>
+    public FadeTransition(Control target)
+    {
+        _target = target;
+        Fader.Init(_target);
+    }
+
     private SceneTree SceneTree
     {
         get
@@ -16,36 +32,30 @@ public class FadeTransition : IViewTransition
             return _sceneTree;
         }
     }
-    private readonly Control _target;
 
-    public FadeTransition(Control target)
+    /// <inheritdoc/>
+    public async Task Hide(bool instant = false)
     {
-        _target = target;
-        Fader.Init(_target);
-    }
-
-    public void Hide(Action onHidden, bool instant)
-    {
-        if(instant)
+        if (instant)
         {
             _target.Modulate = new Color(_target.Modulate, 0);
-            onHidden?.Invoke();
             return;
         }
-        Fader.Hide(SceneTree, _target, onHidden, instant);
+
+        await Fader.Hide(SceneTree, _target, instant);
     }
 
-    public void Show(Action onShown, bool instant)
+    /// <inheritdoc/>
+    public async Task Show(bool instant = false)
     {
         // should always hide before showing because awaiting for parameters shows menu for a split second
         _target.Modulate = new Color(_target.Modulate, 0);
-
         if (instant)
         {
             _target.Modulate = new Color(_target.Modulate, 1);
-            onShown?.Invoke();
             return;
         }
-        Fader.Show(SceneTree, _target, onShown, instant);
+
+        await Fader.Show(SceneTree, _target, instant);
     }
 }

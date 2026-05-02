@@ -1,60 +1,79 @@
-﻿using Godot;
-using System;
+﻿using System.Threading.Tasks;
+using Godot;
+using UISystem.Core.Elements;
 using UISystem.Core.Transitions;
 using UISystem.Core.Views;
-using UISystem.Elements;
 using UISystem.Extensions;
 
 namespace UISystem.Views;
+
 /// <summary>
 /// Base class for a window with interactable elements (menu, popup, etc.)
 /// </summary>
 public abstract partial class ViewBase : Control, IView
 {
-
     private IViewTransition _transition;
-    protected IFocusableControl[] _focusableElements;
 
+    /// <summary>
+    /// Gets or sets interactable elements.
+    /// </summary>
+    protected IInteractableElement[] FocusableElements { get; set; }
+
+    /// <summary>
+    /// Gets the element that is selected by default when menu is shown for the first time.
+    /// </summary>
+    protected abstract IInteractableElement DefaultSelectedElement { get; }
+
+    /// <inheritdoc/>
     public virtual void Init()
     {
         _transition = CreateTransition();
         PopulateFocusableElements();
     }
 
+    /// <inheritdoc/>
     public void SwitchInteractability(bool enable)
     {
-        if (_focusableElements != null)
+        if (FocusableElements != null)
         {
-            for (int i = 0; i < _focusableElements.Length; i++)
+            for (int i = 0; i < FocusableElements.Length; i++)
             {
-                _focusableElements[i].SwitchFocusAvailability(enable);
+                FocusableElements[i].SwitchFocusAvailability(enable);
             }
         }
     }
 
-    public void Show(Action onShown, bool instant = false)
+    /// <inheritdoc/>
+    public async Task Show(bool instant = false)
     {
         SwitchInteractability(false);
         Visible = true;
-        _transition.Show(()=>
-        {
-            SwitchInteractability(true);
-            onShown?.Invoke();
-        }, instant);
+        await _transition.Show(instant);
+        SwitchInteractability(true);
     }
 
-    public void Hide(Action onHidden, bool instant = false)
+    /// <inheritdoc/>
+    public async Task Hide(bool instant = false)
     {
         SwitchInteractability(false);
-        _transition.Hide(() => { 
-            onHidden?.Invoke();
-            Visible = false; // need to switch off visibility to allow GuiPanel3D to receive mouse events
-        }, instant);
+        await _transition.Hide(instant);
+        Visible = false; // need to switch off visibility to allow GuiPanel3D to receive mouse events
     }
 
+    /// <inheritdoc/>
     public void DestroyView() => this.SafeQueueFree();
-    public abstract void FocusElement();
-    protected abstract void PopulateFocusableElements();
-    protected abstract IViewTransition CreateTransition();
 
+    /// <inheritdoc/>
+    public abstract void FocusElement();
+
+    /// <summary>
+    /// Sets interactable elements.
+    /// </summary>
+    protected abstract void PopulateFocusableElements();
+
+    /// <summary>
+    /// Creates transition.
+    /// </summary>
+    /// <returns>Instance of transition.</returns>
+    protected abstract IViewTransition CreateTransition();
 }

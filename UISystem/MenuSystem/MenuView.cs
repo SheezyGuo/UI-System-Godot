@@ -1,14 +1,17 @@
-﻿using UISystem.Core.MenuSystem;
-using UISystem.Elements;
+﻿using UISystem.Core.Elements;
+using UISystem.Core.MenuSystem;
 using UISystem.Views;
 
 namespace UISystem.MenuSystem;
-public abstract partial class MenuView : ViewBase, IMenuView<IFocusableControl>
+
+/// <summary>
+/// Base class for menu views.
+/// </summary>
+public abstract partial class MenuView : ViewBase, IMenuView
 {
+    private IInteractableElement _lastSelectedElement;
 
-    private IFocusableControl _lastSelectedElement;
-    protected abstract IFocusableControl DefaultSelectedElement { get; }
-
+    /// <inheritdoc/>
     public override void FocusElement()
     {
         if (_lastSelectedElement?.IsValidElement() == true)
@@ -21,7 +24,8 @@ public abstract partial class MenuView : ViewBase, IMenuView<IFocusableControl>
         }
     }
 
-    public void SetLastSelectedElement(IFocusableControl lastSelectedElement)
+    /// <inheritdoc/>
+    public void SetLastSelectedElement(IInteractableElement lastSelectedElement)
     {
         _lastSelectedElement = lastSelectedElement;
     }

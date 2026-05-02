@@ -3,18 +3,29 @@ using UISystem.Core.Views;
 using UISystem.PopupSystem.Popups.Views;
 
 namespace UISystem.PopupSystem.Popups.Controllers;
-internal class YesNoPopupController : PopupControllerBase<IViewCreator<YesNoPopupView>, YesNoPopupView>
+
+/// <summary>
+/// Yes/No popup controller.
+/// </summary>
+internal class YesNoPopupController : PopupController<IViewCreator<YesNoPopupView>, YesNoPopupView>
 {
-    public override PopupResult PressedReturnPopupResult => PopupResult.No;
-
-    public YesNoPopupController(IViewCreator<YesNoPopupView> viewCreator, IPopupsManager<PopupResult> popupsManager) 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="YesNoPopupController"/> class.
+    /// </summary>
+    /// <param name="viewCreator">View creator.</param>
+    /// <param name="popupsManager">Popups manager.</param>
+    public YesNoPopupController(IViewCreator<YesNoPopupView> viewCreator, IPopupsManager popupsManager)
         : base(viewCreator, popupsManager)
-    { }
-
-    protected override void SetupElements()
     {
-        _view.YesButton.ButtonDown += () => _popupsManager.HidePopup(PopupResult.Yes);
-        _view.NoButton.ButtonDown += () => _popupsManager.HidePopup(PopupResult.No);
     }
 
+    /// <inheritdoc/>
+    public override PopupResult PressedReturnPopupResult => PopupResult.No;
+
+    /// <inheritdoc/>
+    protected override void SetupElements()
+    {
+        View.YesButton.ButtonDown += () => PopupsManager.HidePopup(PopupResult.Yes);
+        View.NoButton.ButtonDown += () => PopupsManager.HidePopup(PopupResult.No);
+    }
 }

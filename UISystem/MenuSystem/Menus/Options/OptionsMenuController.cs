@@ -1,45 +1,56 @@
-using System;
+using AsyncAwaitBestPractices;
 using UISystem.Core.MenuSystem;
 using UISystem.Core.Views;
 using UISystem.MenuSystem.Views;
 
 namespace UISystem.MenuSystem.Controllers;
-internal class OptionsMenuController : MenuControllerBase<IViewCreator<OptionsMenuView>, OptionsMenuView>
+
+/// <summary>
+/// Options menu controller.
+/// </summary>
+internal class OptionsMenuController : MenuController<IViewCreator<OptionsMenuView>, OptionsMenuView>
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="OptionsMenuController"/> class.
+    /// </summary>
+    /// <param name="viewCreator">View creator.</param>
+    /// <param name="menusManager">Menus manager.</param>
+    public OptionsMenuController(IViewCreator<OptionsMenuView> viewCreator, IMenusManager menusManager)
+        : base(viewCreator, menusManager)
+    {
+    }
 
-    public OptionsMenuController(IViewCreator<OptionsMenuView> viewCreator, IMenuModel model, IMenusManager menusManager) : base(viewCreator, model, menusManager)
-    { }   
-
+    /// <inheritdoc/>
     protected override void SetupElements()
     {
-        _view.ReturnButton.ButtonDown += OnReturnButtonDown;
-        _view.AudioSettingsButton.ButtonDown += OnAudioSettingsButtonDown;
-        _view.VideoSettingsButton.ButtonDown += OnVideoSettingsButtonDown;
-        _view.RebindKeysButton.ButtonDown += OnRebindKeysButtonDown;
-        _view.InterfaceSettingsButton.ButtonDown += OnInterfaceSettingsButtonDown;
+        View.ReturnButton.ButtonDown += OnReturnButtonDown;
+        View.AudioSettingsButton.ButtonDown += OnAudioSettingsButtonDown;
+        View.VideoSettingsButton.ButtonDown += OnVideoSettingsButtonDown;
+        View.RebindKeysButton.ButtonDown += OnRebindKeysButtonDown;
+        View.InterfaceSettingsButton.ButtonDown += OnInterfaceSettingsButtonDown;
     }
 
     private void OnAudioSettingsButtonDown()
     {
-        _view.SetLastSelectedElement(_view.AudioSettingsButton);
-        _menusManager.ShowMenu(typeof(AudioSettingsMenuView));
+        View.SetLastSelectedElement(View.AudioSettingsButton);
+        MenusManager.ShowMenu(typeof(AudioSettingsMenuView)).SafeFireAndForget();
     }
 
     private void OnVideoSettingsButtonDown()
     {
-        _view.SetLastSelectedElement(_view.VideoSettingsButton);
-        _menusManager.ShowMenu(typeof(VideoSettingsMenuView));
+        View.SetLastSelectedElement(View.VideoSettingsButton);
+        MenusManager.ShowMenu(typeof(VideoSettingsMenuView)).SafeFireAndForget();
     }
 
     private void OnRebindKeysButtonDown()
     {
-        _view.SetLastSelectedElement(_view.RebindKeysButton);
-        _menusManager.ShowMenu(typeof(RebindKeysMenuView));
+        View.SetLastSelectedElement(View.RebindKeysButton);
+        MenusManager.ShowMenu(typeof(RebindKeysMenuView)).SafeFireAndForget();
     }
 
     private void OnInterfaceSettingsButtonDown()
     {
-        _view.SetLastSelectedElement(_view.InterfaceSettingsButton);
-        _menusManager.ShowMenu(typeof(InterfaceSettingsMenuView));
+        View.SetLastSelectedElement(View.InterfaceSettingsButton);
+        MenusManager.ShowMenu(typeof(InterfaceSettingsMenuView)).SafeFireAndForget();
     }
 }

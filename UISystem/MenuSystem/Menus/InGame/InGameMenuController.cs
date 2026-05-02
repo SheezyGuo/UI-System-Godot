@@ -1,23 +1,33 @@
-﻿using Godot;
+﻿using AsyncAwaitBestPractices;
 using UISystem.Core.MenuSystem;
 using UISystem.Core.Views;
 using UISystem.MenuSystem.Views;
 
 namespace UISystem.MenuSystem.Controllers;
-internal class InGameMenuController : MenuControllerBase<IViewCreator<InGameMenuView>, InGameMenuView>
+
+/// <summary>
+/// In-game menu controller.
+/// </summary>
+internal class InGameMenuController : MenuController<IViewCreator<InGameMenuView>, InGameMenuView>
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="InGameMenuController"/> class.
+    /// </summary>
+    /// <param name="viewCreator">View creator.</param>
+    /// <param name="menusManager">Menus manager.</param>
+    public InGameMenuController(IViewCreator<InGameMenuView> viewCreator, IMenusManager menusManager)
+        : base(viewCreator, menusManager)
+    {
+    }
 
-    public InGameMenuController(IViewCreator<InGameMenuView> viewCreator, IMenuModel model, IMenusManager menusManager) : base(viewCreator, model, menusManager)
-    { }
-
+    /// <inheritdoc/>
     public override void OnPauseButtonDown()
     {
-        _menusManager.ShowMenu(typeof(PauseMenuView));
+        MenusManager.ShowMenu(typeof(PauseMenuView)).SafeFireAndForget();
     }
 
+    /// <inheritdoc/>
     protected override void SetupElements()
     {
-
     }
-
 }

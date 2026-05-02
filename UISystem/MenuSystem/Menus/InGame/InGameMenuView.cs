@@ -1,24 +1,28 @@
 using Godot;
+using UISystem.Core.Elements;
 using UISystem.Core.Transitions;
-using UISystem.Elements;
 using UISystem.Transitions;
 
 namespace UISystem.MenuSystem.Views;
+
+/// <summary>
+/// In-game menu view.
+/// </summary>
 public partial class InGameMenuView : MenuView
 {
+    [Export] private Control _fadeObjectsContainer;
 
-    [Export] private Control fadeObjectsContainer;
+    /// <inheritdoc/>
+    protected override IInteractableElement DefaultSelectedElement => null;
 
-    public Control FadeObjectsContainer => fadeObjectsContainer;
-
-    protected override IFocusableControl DefaultSelectedElement => null;
-
+    /// <inheritdoc/>
     protected override IViewTransition CreateTransition()
     {
-        return new FadeTransition(FadeObjectsContainer);
+        return new FadeTransition(_fadeObjectsContainer);
     }
 
+    /// <inheritdoc/>
     protected override void PopulateFocusableElements()
-    { }
-
+    {
+    }
 }

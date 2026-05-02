@@ -1,13 +1,18 @@
-﻿using Godot;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Godot;
+using UISystem.Core.Elements;
 using UISystem.Elements.HoverSettings;
+using UISystem.Extensions;
 using UISystem.Hovering;
 using UISystem.Transitions.Interfaces;
 
 namespace UISystem.Elements.ElementViews;
-public partial class HSliderView : HSlider, IFocusableControl, ITweenableMenuElement
-{
 
+/// <summary>
+/// Base class for horizontal slider view.
+/// </summary>
+public partial class HSliderView : HSlider, IInteractableElement, ITweenableMenuElement
+{
     [Export] private HSliderHoverSettings hoverSettings;
     [Export] private Control grabber;
     [Export] private Control grabberResizableControl;
@@ -20,12 +25,21 @@ public partial class HSliderView : HSlider, IFocusableControl, ITweenableMenuEle
     private bool _isDragging;
     private Tween _tween;
 
+    /// <summary>
+    /// Gets the control responsible for button position.
+    /// </summary>
     public Control PositionControl => this;
+
+    /// <summary>
+    /// Gets the control responsible for resizing the button.
+    /// </summary>
     public Control ResizableControl => resizableControl;
 
+    /// <inheritdoc/>
     public override async void _EnterTree()
     {
-        if (hoverSettings == null) return;
+        if (hoverSettings == null)
+            return;
 
         await ToSignal(RenderingServer.Singleton, RenderingServerInstance.SignalName.FramePostDraw);
 
@@ -34,11 +48,14 @@ public partial class HSliderView : HSlider, IFocusableControl, ITweenableMenuEle
         UpdateSliderVisual(Value);
     }
 
+    /// <inheritdoc/>
     public override void _ExitTree() => Unsubscribe();
 
+    /// <inheritdoc/>
     public async Task ResetHover()
     {
-        if (_hoverTweener == null) await Task.CompletedTask;
+        if (_hoverTweener == null)
+            await Task.CompletedTask;
 
         _tween?.Kill();
         _tween = GetTree().CreateTween();
@@ -46,11 +63,35 @@ public partial class HSliderView : HSlider, IFocusableControl, ITweenableMenuEle
         await ToSignal(_tween, Tween.SignalName.Finished);
     }
 
+    /// <inheritdoc/>
     public override void _ValueChanged(double newValue)
     {
-        if (hoverSettings == null) return;
-        
+        if (hoverSettings == null)
+            return;
+
         UpdateSliderVisual(newValue);
+    }
+
+    /// <inheritdoc/>
+    public void SwitchFocus(bool focus)
+    {
+        if (focus)
+            GrabFocus();
+        else
+            ReleaseFocus();
+    }
+
+    /// <inheritdoc/>
+    public bool IsValidElement() => this.IsValid();
+
+    /// <inheritdoc/>
+    public void SwitchFocusAvailability(bool focusable)
+    {
+        FocusMode = focusable ? FocusModeEnum.All : FocusModeEnum.None;
+        MouseFilter = focusable ? MouseFilterEnum.Stop : MouseFilterEnum.Ignore;
+
+        if (!focusable && HasFocus())
+            SwitchFocus(false);
     }
 
     private void Subscribe()
@@ -65,7 +106,8 @@ public partial class HSliderView : HSlider, IFocusableControl, ITweenableMenuEle
 
     private void Unsubscribe()
     {
-        if (hoverSettings == null) return;
+        if (hoverSettings == null)
+            return;
         FocusEntered -= OnFocusEntered;
         FocusExited -= OnFocusExited;
         MouseEntered -= OnMouseEntered;
@@ -79,6 +121,7 @@ public partial class HSliderView : HSlider, IFocusableControl, ITweenableMenuEle
         _mouseOver = true;
         HoverTween();
     }
+
     private void OnMouseExited()
     {
         _mouseOver = false;
@@ -86,11 +129,13 @@ public partial class HSliderView : HSlider, IFocusableControl, ITweenableMenuEle
     }
 
     private void OnFocusEntered() => HoverTween();
+
     private void OnFocusExited() => HoverTween();
 
     private void HoverTween()
     {
-        if (_hoverTweener == null) return;
+        if (_hoverTweener == null)
+            return;
 
         _tween?.Kill();
         _tween = GetTree().CreateTween();
@@ -101,10 +146,13 @@ public partial class HSliderView : HSlider, IFocusableControl, ITweenableMenuEle
     {
         if (HasFocus())
         {
-            return _mouseOver ? ControlDrawMode.HoverFocus : _isDragging ? ControlDrawMode.HoverFocus : ControlDrawMode.Focus;
+            var isDragginFocus = _isDragging ? ControlDrawMode.HoverFocus : ControlDrawMode.Focus;
+            return _mouseOver ? ControlDrawMode.HoverFocus : isDragginFocus;
         }
         else
+        {
             return _mouseOver ? ControlDrawMode.Hover : ControlDrawMode.Normal;
+        }
     }
 
     private void OnDragStarted() => _isDragging = true;
@@ -119,7 +167,6 @@ public partial class HSliderView : HSlider, IFocusableControl, ITweenableMenuEle
     {
         float value = (float)newValue;
         fill.SetAnchor(Side.Right, value, true);
-        grabber.Position = new Vector2((background.Size.X * value) - grabber.Size.X * 0.5f, grabber.Position.Y);
+        grabber.Position = new Vector2((background.Size.X * value) - (grabber.Size.X * 0.5f), grabber.Position.Y);
     }
-
 }

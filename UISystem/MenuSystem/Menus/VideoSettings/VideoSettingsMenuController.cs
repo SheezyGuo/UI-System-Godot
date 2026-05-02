@@ -7,68 +7,86 @@ using UISystem.Extensions;
 using UISystem.MenuSystem.Models;
 using UISystem.MenuSystem.SettingsMenu;
 using UISystem.MenuSystem.Views;
-using UISystem.PopupSystem;
 
 namespace UISystem.MenuSystem.Controllers;
+
+/// <summary>
+/// Video settings menu controller.
+/// </summary>
 internal class VideoSettingsMenuController : SettingsMenuController<IViewCreator<VideoSettingsMenuView>, VideoSettingsMenuView, VideoSettingsMenuModel>
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="VideoSettingsMenuController"/> class.
+    /// </summary>
+    /// <param name="viewCreator">View creator.</param>
+    /// <param name="menusManager">Menus manager.</param>
+    /// <param name="model">Video settings menu model.</param>
+    /// <param name="popupsManager">Popups manager.</param>
+    public VideoSettingsMenuController(
+        IViewCreator<VideoSettingsMenuView> viewCreator,
+        IMenusManager menusManager,
+        VideoSettingsMenuModel model,
+        IPopupsManager popupsManager)
+        : base(viewCreator, menusManager, model, popupsManager)
+    {
+    }
 
-    public VideoSettingsMenuController(IViewCreator<VideoSettingsMenuView> viewCreator, VideoSettingsMenuModel model, 
-        IMenusManager menusManager, IPopupsManager<PopupResult> popupsManager) : base(viewCreator, model, menusManager, popupsManager)
-    { }
-
+    /// <inheritdoc/>
     protected override void SetupElements()
     {
         base.SetupElements();
         SetupWindowModeDropdown();
         SetupResolutionDropdown();
-        _view.SaveSettingsButton.ButtonDown += _model.SaveSettings;
+        View.SaveSettingsButton.ButtonDown += Model.SaveSettings;
+    }
+
+    /// <inheritdoc/>
+    protected override void UpdateFullView()
+    {
+        View.WindowModeDropdown.SelectItem(Model.CurrenWindowModeIndex);
+        View.ResolutionDropdown.SelectItem(Model.CurrentResolutionIndex);
     }
 
     private void SetupWindowModeDropdown()
     {
-        var windowModeNames = _model.GetWindowModeOptionNames();
+        var windowModeNames = VideoSettingsMenuModel.WindowModeOptionNames;
         OptionButtonItem[] items = new OptionButtonItem[windowModeNames.Length];
         for (int i = 0; i < items.Length; i++)
         {
             var name = Regex.Replace(windowModeNames[i].ToString(), "([A-Z])", " $1").Trim(); // to have space in ExclusiveFullscreen
             items[i] = new OptionButtonItem(name, i);
         }
-        _view.WindowModeDropdown.AddMultipleItems(items);
-        _view.WindowModeDropdown.SelectItem(_model.CurrenWindowModeIndex);
-        _view.WindowModeDropdown.ItemSelected += OnWindowModeDropdownSelect;
+
+        View.WindowModeDropdown.AddMultipleItems(items);
+        View.WindowModeDropdown.SelectItem(Model.CurrenWindowModeIndex);
+        View.WindowModeDropdown.ItemSelected += OnWindowModeDropdownSelect;
     }
 
     private void SetupResolutionDropdown()
     {
-        var resolutionNames = _model.GetAvailableResolutionNames();
+        var resolutionNames = VideoSettingsMenuModel.AvailableResolutionNames;
         OptionButtonItem[] items = new OptionButtonItem[resolutionNames.Length];
         for (int i = 0; i < items.Length; i++)
         {
             items[i] = new OptionButtonItem(resolutionNames[i], i);
         }
 
-        _view.ResolutionDropdown.AddMultipleItems(items);
+        View.ResolutionDropdown.AddMultipleItems(items);
+
         // if player resizes window, there won't be any matching resolutions
         // this is to prevent dropdown being empty and show some value
-        int index = _model.CurrentResolutionIndex > 0 ? _model.CurrentResolutionIndex : 0;
-        _view.ResolutionDropdown.SelectItem(index);
-        _view.ResolutionDropdown.ItemSelected += OnResolutionDropdownSelect;
+        int index = Model.CurrentResolutionIndex > 0 ? Model.CurrentResolutionIndex : 0;
+        View.ResolutionDropdown.SelectItem(index);
+        View.ResolutionDropdown.ItemSelected += OnResolutionDropdownSelect;
     }
 
     private void OnResolutionDropdownSelect(long index)
     {
-        _model.SelectResolution((int)index);
+        Model.SelectResolution((int)index);
     }
 
     private void OnWindowModeDropdownSelect(long index)
     {
-        _model.SelectWindowMode((int)index);
-    }
-
-    protected override void ResetViewToDefault()
-    {
-        _view.WindowModeDropdown.SelectItem(_model.CurrenWindowModeIndex);
-        _view.ResolutionDropdown.SelectItem(_model.CurrentResolutionIndex);
+        Model.SelectWindowMode((int)index);
     }
 }
