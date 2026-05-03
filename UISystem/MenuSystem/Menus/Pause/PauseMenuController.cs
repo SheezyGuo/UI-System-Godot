@@ -42,18 +42,10 @@ internal class PauseMenuController : MenuController<IViewCreator<PauseMenuView>,
     }
 
     /// <inheritdoc/>
-    public override async Task Show(Action onComplete = null, bool instant = false)
+    public override async Task Show(bool instant = false)
     {
         _menuBackgroundController.ShowBackground(instant).SafeFireAndForget();
-        await base.Show(onComplete, instant);
-    }
-
-    /// <inheritdoc/>
-    public override async Task Hide(StackingType stackingType, Action onComplete = null, bool instant = false)
-    {
-        if (stackingType != StackingType.Add)
-            _menuBackgroundController.HideBackground(instant).SafeFireAndForget();
-        await base.Hide(stackingType, onComplete, instant);
+        await base.Show(instant);
     }
 
     /// <inheritdoc/>
@@ -67,7 +59,7 @@ internal class PauseMenuController : MenuController<IViewCreator<PauseMenuView>,
     private void PressedOptions()
     {
         View.SetLastSelectedElement(View.OptionsButton);
-        MenusManager.ShowMenu(typeof(OptionsMenuView)).SafeFireAndForget();
+        MenusManager.ShowMenu<OptionsMenuView>().SafeFireAndForget();
     }
 
     private void PressedReturn()
@@ -76,12 +68,12 @@ internal class PauseMenuController : MenuController<IViewCreator<PauseMenuView>,
         SwitchInteractability(false);
 
         _popupsManager
-            .ShowPopup(typeof(YesNoPopupView), PopupMessages.QuitToMainMenu, async (result) =>
+            .ShowPopup<YesNoPopupView>(PopupMessages.QuitToMainMenu, async (result) =>
             {
                 if (result == PopupResult.Yes)
                 {
                     await _screenFadeManager.FadeOut();
-                    await MenusManager.ShowMenu(typeof(MainMenuView), StackingType.Clear, instant: true);
+                    await MenusManager.ShowMenu<MainMenuView>(StackingType.Clear, instant: true);
                     await _screenFadeManager.FadeIn();
                 }
                 else if (result == PopupResult.No)

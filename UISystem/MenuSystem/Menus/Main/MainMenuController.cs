@@ -47,18 +47,10 @@ internal class MainMenuController : MenuController<IViewCreator<MainMenuView>, M
     }
 
     /// <inheritdoc/>
-    public override async Task Show(Action onComplete = null, bool instant = false)
+    public override async Task Show(bool instant = false)
     {
         _menuBackgroundController.ShowBackground(instant).SafeFireAndForget();
-        await base.Show(onComplete, instant);
-    }
-
-    /// <inheritdoc/>
-    public override async Task Hide(StackingType stackingType, Action onComplete = null, bool instant = false)
-    {
-        if (stackingType != StackingType.Add)
-            _menuBackgroundController.HideBackground(instant).SafeFireAndForget();
-        await base.Hide(stackingType, onComplete, instant);
+        await base.Show(instant);
     }
 
     /// <inheritdoc/>
@@ -80,14 +72,14 @@ internal class MainMenuController : MenuController<IViewCreator<MainMenuView>, M
     {
         View.SetLastSelectedElement(View.PlayButton);
         await _screenFadeManager.FadeOut();
-        await MenusManager.ShowMenu(typeof(InGameMenuView), StackingType.Clear, instant: true);
+        await MenusManager.ShowMenu<InGameMenuView>(StackingType.Clear, instant: true);
         await _screenFadeManager.FadeIn();
     }
 
     private void PressedOptions()
     {
         View.SetLastSelectedElement(View.OptionsButton);
-        MenusManager.ShowMenu(typeof(OptionsMenuView)).SafeFireAndForget();
+        MenusManager.ShowMenu<OptionsMenuView>().SafeFireAndForget();
     }
 
     private void PressedQuit()
@@ -99,7 +91,7 @@ internal class MainMenuController : MenuController<IViewCreator<MainMenuView>, M
     private async Task ShowQuitPopup()
     {
         SwitchInteractability(false);
-        await _popupsManager.ShowPopup(typeof(YesNoPopupView), PopupMessages.QuitGame, (result) =>
+        await _popupsManager.ShowPopup<YesNoPopupView>(PopupMessages.QuitGame, (result) =>
         {
             if (result == PopupResult.Yes)
                 _sceneTree.Quit();
