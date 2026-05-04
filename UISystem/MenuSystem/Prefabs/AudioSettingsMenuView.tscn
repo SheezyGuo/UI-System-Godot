@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bx45yom4bi85n"]
+[gd_scene load_steps=7 format=3 uid="uid://bx45yom4bi85n"]
 
 [ext_resource type="Script" path="res://UISystem/MenuSystem/Menus/AudioSettings/AudioSettingsMenuView.cs" id="1_ca7ap"]
 [ext_resource type="Theme" uid="uid://bwj1we86ii4gw" path="res://UISystem/Themes/ButtonsFontTheme.tres" id="2_6en0s"]
 [ext_resource type="Script" path="res://UISystem/Elements/ElementViews/ResizableControlView.cs" id="2_gm07w"]
 [ext_resource type="PackedScene" uid="uid://dhxdq3yb0u7i7" path="res://UISystem/Common/Prefabs/HSlider.tscn" id="4_ge6q5"]
 [ext_resource type="PackedScene" uid="uid://b0ifhq3dslldh" path="res://UISystem/Common/Prefabs/Variants/MenuOptionButtonView.tscn" id="5_l4qqc"]
-[ext_resource type="Resource" uid="uid://pxdlfq08bkq1" path="res://UISystem/Common/ElementsHoverSettings/OptionsButton/HoverSettings.tres" id="6_f4red"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_runyc"]
 
@@ -225,15 +224,10 @@ theme_override_constants/separation = 40
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="ReturnButton" parent="Container/Panel/PanelBorder/Color/ButtonsContainer" node_paths=PackedStringArray("_resizableControl", "_innerColor", "_border", "_label") instance=ExtResource("5_l4qqc")]
+[node name="ReturnButton" parent="Container/Panel/PanelBorder/Color/ButtonsContainer" instance=ExtResource("5_l4qqc")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
-_buttonHoverSettings = ExtResource("6_f4red")
-_resizableControl = NodePath("ResizableControl")
-_innerColor = NodePath("ResizableControl/Border/Control/InsideColor")
-_border = NodePath("ResizableControl/Border")
-_label = NodePath("ResizableControl/ContentClipper/Label")
 
 [node name="ResizableControl" parent="Container/Panel/PanelBorder/Color/ButtonsContainer/ReturnButton" index="0"]
 light_mask = 2
@@ -245,18 +239,6 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Border" parent="Container/Panel/PanelBorder/Color/ButtonsContainer/ReturnButton/ResizableControl" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Control" parent="Container/Panel/PanelBorder/Color/ButtonsContainer/ReturnButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="Container/Panel/PanelBorder/Color/ButtonsContainer/ReturnButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
 
 [node name="ContentClipper" parent="Container/Panel/PanelBorder/Color/ButtonsContainer/ReturnButton/ResizableControl" index="1"]
 light_mask = 2
@@ -273,15 +255,10 @@ offset_bottom = 40.5
 pivot_offset = Vector2(125, 40)
 text = "RETURN"
 
-[node name="SaveSettingsButton" parent="Container/Panel/PanelBorder/Color/ButtonsContainer" node_paths=PackedStringArray("_resizableControl", "_innerColor", "_border", "_label") instance=ExtResource("5_l4qqc")]
+[node name="SaveSettingsButton" parent="Container/Panel/PanelBorder/Color/ButtonsContainer" instance=ExtResource("5_l4qqc")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
-_buttonHoverSettings = ExtResource("6_f4red")
-_resizableControl = NodePath("ResizableControl")
-_innerColor = NodePath("ResizableControl/Border/Control/InsideColor")
-_border = NodePath("ResizableControl/Border")
-_label = NodePath("ResizableControl/ContentClipper/Label")
 
 [node name="ResizableControl" parent="Container/Panel/PanelBorder/Color/ButtonsContainer/SaveSettingsButton" index="0"]
 light_mask = 2
@@ -293,18 +270,6 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Border" parent="Container/Panel/PanelBorder/Color/ButtonsContainer/SaveSettingsButton/ResizableControl" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Control" parent="Container/Panel/PanelBorder/Color/ButtonsContainer/SaveSettingsButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="Container/Panel/PanelBorder/Color/ButtonsContainer/SaveSettingsButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
 
 [node name="ContentClipper" parent="Container/Panel/PanelBorder/Color/ButtonsContainer/SaveSettingsButton/ResizableControl" index="1"]
 light_mask = 2
@@ -320,15 +285,10 @@ offset_right = 195.0
 offset_bottom = 40.5
 text = "SAVE"
 
-[node name="ResetToDefaultButton" parent="Container/Panel/PanelBorder/Color/ButtonsContainer" node_paths=PackedStringArray("_resizableControl", "_innerColor", "_border", "_label") instance=ExtResource("5_l4qqc")]
+[node name="ResetToDefaultButton" parent="Container/Panel/PanelBorder/Color/ButtonsContainer" instance=ExtResource("5_l4qqc")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
-_buttonHoverSettings = ExtResource("6_f4red")
-_resizableControl = NodePath("ResizableControl")
-_innerColor = NodePath("ResizableControl/Border/Control/InsideColor")
-_border = NodePath("ResizableControl/Border")
-_label = NodePath("ResizableControl/ContentClipper/Label")
 
 [node name="ResizableControl" parent="Container/Panel/PanelBorder/Color/ButtonsContainer/ResetToDefaultButton" index="0"]
 light_mask = 2
@@ -340,18 +300,6 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Border" parent="Container/Panel/PanelBorder/Color/ButtonsContainer/ResetToDefaultButton/ResizableControl" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Control" parent="Container/Panel/PanelBorder/Color/ButtonsContainer/ResetToDefaultButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="Container/Panel/PanelBorder/Color/ButtonsContainer/ResetToDefaultButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
 
 [node name="ContentClipper" parent="Container/Panel/PanelBorder/Color/ButtonsContainer/ResetToDefaultButton/ResizableControl" index="1"]
 light_mask = 2

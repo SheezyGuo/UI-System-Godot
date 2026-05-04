@@ -130,14 +130,10 @@ offset_bottom = -0.677673
 theme_override_constants/separation = 25
 metadata/_edit_use_anchors_ = true
 
-[node name="YesButton" parent="FadeObjectContainer/Outline/Color/ButtonsContainer" node_paths=PackedStringArray("_resizableControl", "_innerColor", "_border", "_label") instance=ExtResource("3_2uld7")]
+[node name="YesButton" parent="FadeObjectContainer/Outline/Color/ButtonsContainer" instance=ExtResource("3_2uld7")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
-_resizableControl = NodePath("ResizableControl")
-_innerColor = NodePath("ResizableControl/Border/Control/InsideColor")
-_border = NodePath("ResizableControl/Border")
-_label = NodePath("ResizableControl/ContentClipper/Label")
 
 [node name="ResizableControl" parent="FadeObjectContainer/Outline/Color/ButtonsContainer/YesButton" index="0"]
 light_mask = 2
@@ -149,18 +145,6 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Border" parent="FadeObjectContainer/Outline/Color/ButtonsContainer/YesButton/ResizableControl" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Control" parent="FadeObjectContainer/Outline/Color/ButtonsContainer/YesButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="FadeObjectContainer/Outline/Color/ButtonsContainer/YesButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
 
 [node name="ContentClipper" parent="FadeObjectContainer/Outline/Color/ButtonsContainer/YesButton/ResizableControl" index="1"]
 light_mask = 2
@@ -191,18 +175,6 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Border" parent="FadeObjectContainer/Outline/Color/ButtonsContainer/NoButton/ResizableControl" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Control" parent="FadeObjectContainer/Outline/Color/ButtonsContainer/NoButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="FadeObjectContainer/Outline/Color/ButtonsContainer/NoButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
-
 [node name="ContentClipper" parent="FadeObjectContainer/Outline/Color/ButtonsContainer/NoButton/ResizableControl" index="1"]
 light_mask = 2
 visibility_layer = 2
@@ -231,18 +203,6 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Border" parent="FadeObjectContainer/Outline/Color/ButtonsContainer/CancelButton/ResizableControl" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Control" parent="FadeObjectContainer/Outline/Color/ButtonsContainer/CancelButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="FadeObjectContainer/Outline/Color/ButtonsContainer/CancelButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
 
 [node name="ContentClipper" parent="FadeObjectContainer/Outline/Color/ButtonsContainer/CancelButton/ResizableControl" index="1"]
 light_mask = 2

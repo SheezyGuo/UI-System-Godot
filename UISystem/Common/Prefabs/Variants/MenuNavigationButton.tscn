@@ -5,15 +5,16 @@
 [ext_resource type="StyleBox" uid="uid://d1gy2bt5uinfv" path="res://UISystem/Styles/ButtonShape.tres" id="4_6uuwg"]
 [ext_resource type="Theme" uid="uid://bwj1we86ii4gw" path="res://UISystem/Themes/ButtonsFontTheme.tres" id="5_osv58"]
 
-[node name="MenuNavigationButton" type="Button" node_paths=PackedStringArray("_resizableControl", "_innerColor", "_border", "_label")]
+[node name="MenuNavigationButton" type="Button" node_paths=PackedStringArray("_resizableControl", "_hoverResizableControl", "_innerColor", "_border", "_label")]
 self_modulate = Color(1, 1, 1, 0)
 size_flags_vertical = 3
 flat = true
 script = ExtResource("1_tsrqv")
 _buttonHoverSettings = ExtResource("2_pe4x4")
 _resizableControl = NodePath("ResizableControl")
-_innerColor = NodePath("ResizableControl/Border/Control/InsideColor")
-_border = NodePath("ResizableControl/Border")
+_hoverResizableControl = NodePath("ResizableControl/HoverResizableControl")
+_innerColor = NodePath("ResizableControl/HoverResizableControl/Border/Control/InsideColor")
+_border = NodePath("ResizableControl/HoverResizableControl/Border")
 _label = NodePath("ResizableControl/TextClipper/Label")
 
 [node name="ResizableControl" type="Control" parent="."]
@@ -23,7 +24,18 @@ offset_right = 450.0
 offset_bottom = 90.0
 mouse_filter = 2
 
-[node name="Border" type="PanelContainer" parent="ResizableControl"]
+[node name="HoverResizableControl" type="Control" parent="ResizableControl"]
+light_mask = 2
+visibility_layer = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Border" type="PanelContainer" parent="ResizableControl/HoverResizableControl"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,11 +45,11 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("4_6uuwg")
 
-[node name="Control" type="Control" parent="ResizableControl/Border"]
+[node name="Control" type="Control" parent="ResizableControl/HoverResizableControl/Border"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="InsideColor" type="PanelContainer" parent="ResizableControl/Border/Control"]
+[node name="InsideColor" type="PanelContainer" parent="ResizableControl/HoverResizableControl/Border/Control"]
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = -1

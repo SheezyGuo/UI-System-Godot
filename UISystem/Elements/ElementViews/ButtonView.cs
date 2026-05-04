@@ -15,6 +15,7 @@ public partial class ButtonView : BaseButton, IInteractableElement, ITweenableMe
 {
     [Export] private ButtonHoverSettings _buttonHoverSettings;
     [Export] private Control _resizableControl;
+    [Export] private Control _hoverResizableControl;
     [Export] private Control _innerColor;
     [Export] private Control _border;
     [Export] private Label _label;
@@ -41,7 +42,7 @@ public partial class ButtonView : BaseButton, IInteractableElement, ITweenableMe
 
         await ToSignal(RenderingServer.Singleton, RenderingServerInstance.SignalName.FramePostDraw);
 
-        _hoverTweener = _buttonHoverSettings.CreateTweener(_resizableControl, _innerColor, _border, _label);
+        _hoverTweener = _buttonHoverSettings.CreateTweener(_hoverResizableControl, _innerColor, _border, _label);
         Subscribe();
     }
 
