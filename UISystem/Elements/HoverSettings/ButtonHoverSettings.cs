@@ -9,17 +9,17 @@ namespace UISystem.Elements.HoverSettings;
 [GlobalClass]
 public partial class ButtonHoverSettings : Resource
 {
-    [Export] private float duration = 1;
-    [Export] private float resetDuration = 0.25f;
-    [Export] private Tween.EaseType ease = Tween.EaseType.Out;
-    [Export] private Tween.EaseType resetEase = Tween.EaseType.Out;
-    [Export] private Tween.TransitionType transition = Tween.TransitionType.Elastic;
-    [Export] private Tween.TransitionType resetTransition = Tween.TransitionType.Back;
-    [Export] private SizeTweenSettings sizeChangeSettings;
-    [Export] private PositionTweenSettings positionChangeSettings;
-    [Export] private ColorTweenSettings borderColorChangeSettings;
-    [Export] private ColorTweenSettings colorChangeSettings;
-    [Export] private ColorTweenSettings labelColorChangeSettings;
+    [Export] private float _duration = 1;
+    [Export] private float _resetDuration = 0.25f;
+    [Export] private Tween.EaseType _ease = Tween.EaseType.Out;
+    [Export] private Tween.EaseType _resetEase = Tween.EaseType.Out;
+    [Export] private Tween.TransitionType _transition = Tween.TransitionType.Elastic;
+    [Export] private Tween.TransitionType _resetTransition = Tween.TransitionType.Back;
+    [Export] private SizeTweenSettings _sizeChangeSettings;
+    [Export] private PositionTweenSettings _positionChangeSettings;
+    [Export] private ColorTweenSettings _borderColorChangeSettings;
+    [Export] private ColorTweenSettings _colorChangeSettings;
+    [Export] private ColorTweenSettings _labelColorChangeSettings;
 
     /// <summary>
     /// Creates tweener for the button.
@@ -36,12 +36,12 @@ public partial class ButtonHoverSettings : Resource
         Control labelColorTarget)
     {
         return new ButtonTweenerFacade(
-            new TweeningSettings(duration, resetDuration, ease, resetEase, transition, resetTransition),
-            (resizableControl, sizeChangeSettings),
-            (resizableControl, positionChangeSettings),
-            (colorTarget, colorChangeSettings),
-            (borderColorTarget, borderColorChangeSettings),
-            (labelColorTarget, labelColorChangeSettings));
+            new TweeningSettings(_duration, _resetDuration, _ease, _resetEase, _transition, _resetTransition),
+            (resizableControl, _sizeChangeSettings),
+            (resizableControl, _positionChangeSettings),
+            (colorTarget, _colorChangeSettings),
+            (borderColorTarget, _borderColorChangeSettings),
+            (labelColorTarget, _labelColorChangeSettings));
     }
 
     private sealed class ButtonTweenerFacade : IHoverTweener

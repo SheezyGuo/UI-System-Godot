@@ -9,17 +9,17 @@ namespace UISystem.Elements.HoverSettings;
 [GlobalClass]
 public partial class HSliderHoverSettings : Resource
 {
-    [Export] private float duration = 1;
-    [Export] private float resetDuration = 0.25f;
-    [Export] private Tween.EaseType ease = Tween.EaseType.Out;
-    [Export] private Tween.EaseType resetEase = Tween.EaseType.Out;
-    [Export] private Tween.TransitionType transition = Tween.TransitionType.Elastic;
-    [Export] private Tween.TransitionType resetTransition = Tween.TransitionType.Back;
-    [Export] private SizeTweenSettings grabberSizeSettings;
-    [Export] private PositionTweenSettings grabberPositionsSettings;
-    [Export] private ColorTweenSettings grabberColorSettings;
-    [Export] private ColorTweenSettings backgroundColorSettings;
-    [Export] private ColorTweenSettings fillColorSettings;
+    [Export] private float _duration = 1;
+    [Export] private float _resetDuration = 0.25f;
+    [Export] private Tween.EaseType _ease = Tween.EaseType.Out;
+    [Export] private Tween.EaseType _resetEase = Tween.EaseType.Out;
+    [Export] private Tween.TransitionType _transition = Tween.TransitionType.Elastic;
+    [Export] private Tween.TransitionType _resetTransition = Tween.TransitionType.Back;
+    [Export] private SizeTweenSettings _grabberSizeSettings;
+    [Export] private PositionTweenSettings _grabberPositionsSettings;
+    [Export] private ColorTweenSettings _grabberColorSettings;
+    [Export] private ColorTweenSettings _backgroundColorSettings;
+    [Export] private ColorTweenSettings _fillColorSettings;
 
     /// <summary>
     /// Creates tweener for the slider.
@@ -31,10 +31,10 @@ public partial class HSliderHoverSettings : Resource
     public IHoverTweener CreateTweener(Control grabberResizableControl, Control background, Control fill)
     {
         return new HSliderTweenerFacade(
-            new TweeningSettings(duration, resetDuration, ease, resetEase, transition, resetTransition),
-            (grabberResizableControl, grabberSizeSettings, grabberPositionsSettings, grabberColorSettings),
-            (background, backgroundColorSettings),
-            (fill, fillColorSettings));
+            new TweeningSettings(_duration, _resetDuration, _ease, _resetEase, _transition, _resetTransition),
+            (grabberResizableControl, _grabberSizeSettings, _grabberPositionsSettings, _grabberColorSettings),
+            (background, _backgroundColorSettings),
+            (fill, _fillColorSettings));
     }
 
     private sealed class HSliderTweenerFacade : IHoverTweener

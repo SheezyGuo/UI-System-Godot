@@ -9,14 +9,14 @@
 
 [resource]
 script = ExtResource("1_bv111")
-duration = 1.0
-resetDuration = 0.25
-ease = 1
-resetEase = 1
-transition = 6
-resetTransition = 10
-grabberSizeSettings = ExtResource("5_27bgn")
-grabberPositionsSettings = ExtResource("4_j158a")
-grabberColorSettings = ExtResource("3_y7pgs")
-backgroundColorSettings = ExtResource("1_js4mv")
-fillColorSettings = ExtResource("2_0vjce")
+_duration = 1.0
+_resetDuration = 0.25
+_ease = 1
+_resetEase = 1
+_transition = 6
+_resetTransition = 10
+_grabberSizeSettings = ExtResource("5_27bgn")
+_grabberPositionsSettings = ExtResource("4_j158a")
+_grabberColorSettings = ExtResource("3_y7pgs")
+_backgroundColorSettings = ExtResource("1_js4mv")
+_fillColorSettings = ExtResource("2_0vjce")

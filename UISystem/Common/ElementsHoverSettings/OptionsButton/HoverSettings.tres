@@ -7,12 +7,12 @@
 
 [resource]
 script = ExtResource("1_twq4d")
-duration = 1.0
-resetDuration = 0.25
-ease = 1
-resetEase = 1
-transition = 6
-resetTransition = 10
-sizeChangeSettings = ExtResource("4_bwoub")
-positionChangeSettings = ExtResource("2_pkx3o")
-borderColorChangeSettings = ExtResource("1_47ghg")
+_duration = 1.0
+_resetDuration = 0.25
+_ease = 1
+_resetEase = 1
+_transition = 6
+_resetTransition = 10
+_sizeChangeSettings = ExtResource("4_bwoub")
+_positionChangeSettings = ExtResource("2_pkx3o")
+_borderColorChangeSettings = ExtResource("1_47ghg")
