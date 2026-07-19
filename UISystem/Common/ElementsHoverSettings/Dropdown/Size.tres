@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SizeTweenSettings" load_steps=2 format=3 uid="uid://cv8ab1b50yhh6"]
+[gd_resource type="Resource" script_class="SizeTweenSettings" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://addons/UISystem/UISystem/Hovering/SizeTweenSettings.cs" id="1_2ag5r"]
 

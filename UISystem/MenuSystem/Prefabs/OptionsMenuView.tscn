@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp2yn6w4kyuam"]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://addons/UISystem/UISystem/MenuSystem/Menus/Options/OptionsMenuView.cs" id="1_sgbji"]
-[ext_resource type="PackedScene" uid="uid://ck4an0jqn373h" path="res://addons/UISystem/UISystem/Common/Prefabs/Variants/MenuNavigationButton.tscn" id="2_arv6h"]
+[ext_resource type="PackedScene" path="res://addons/UISystem/UISystem/Common/Prefabs/Variants/MenuNavigationButton.tscn" id="2_arv6h"]
 
-[node name="OptionsMenuView" type="Control" node_paths=PackedStringArray("_interfaceSettingsButton", "_audioSettingsButton", "_videoSettingsButton", "_rebindKeysButton", "_returnButton", "_fadeObjectsContainer")]
+[node name="OptionsMenuView" type="Control" unique_id=1031032079 node_paths=PackedStringArray("_interfaceSettingsButton", "_audioSettingsButton", "_videoSettingsButton", "_rebindKeysButton", "_returnButton", "_fadeObjectsContainer")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 3
@@ -20,7 +20,7 @@ _rebindKeysButton = NodePath("Container/VBoxContainer/RebindKeysButton")
 _returnButton = NodePath("Container/VBoxContainer/ReturnButton")
 _fadeObjectsContainer = NodePath("Container")
 
-[node name="Container" type="Control" parent="."]
+[node name="Container" type="Control" parent="." unique_id=1583269597]
 light_mask = 2
 visibility_layer = 2
 clip_contents = true
@@ -31,7 +31,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Container"]
+[node name="Label" type="Label" parent="Container" unique_id=1129434518]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -47,7 +47,7 @@ text = "Options menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Container" unique_id=1771966516]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -62,12 +62,12 @@ grow_horizontal = 2
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
-[node name="InterfaceSettingsButton" parent="Container/VBoxContainer" instance=ExtResource("2_arv6h")]
+[node name="InterfaceSettingsButton" parent="Container/VBoxContainer" unique_id=556688142 instance=ExtResource("2_arv6h")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
 
-[node name="ResizableControl" parent="Container/VBoxContainer/InterfaceSettingsButton" index="0"]
+[node name="ResizableControl" parent="Container/VBoxContainer/InterfaceSettingsButton" index="0" unique_id=608558920]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -79,33 +79,21 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Border" parent="Container/VBoxContainer/InterfaceSettingsButton/ResizableControl" index="0"]
+[node name="TextClipper" parent="Container/VBoxContainer/InterfaceSettingsButton/ResizableControl" index="1" unique_id=339528166]
 light_mask = 2
 visibility_layer = 2
 
-[node name="Control" parent="Container/VBoxContainer/InterfaceSettingsButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="Container/VBoxContainer/InterfaceSettingsButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="TextClipper" parent="Container/VBoxContainer/InterfaceSettingsButton/ResizableControl" index="1"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Label" parent="Container/VBoxContainer/InterfaceSettingsButton/ResizableControl/TextClipper" index="0"]
+[node name="Label" parent="Container/VBoxContainer/InterfaceSettingsButton/ResizableControl/TextClipper" index="0" unique_id=64156646]
 light_mask = 2
 visibility_layer = 2
 text = "INTERFACE"
 
-[node name="AudioSettingsButton" parent="Container/VBoxContainer" instance=ExtResource("2_arv6h")]
+[node name="AudioSettingsButton" parent="Container/VBoxContainer" unique_id=47523540 instance=ExtResource("2_arv6h")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
 
-[node name="ResizableControl" parent="Container/VBoxContainer/AudioSettingsButton" index="0"]
+[node name="ResizableControl" parent="Container/VBoxContainer/AudioSettingsButton" index="0" unique_id=608558920]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -117,33 +105,21 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Border" parent="Container/VBoxContainer/AudioSettingsButton/ResizableControl" index="0"]
+[node name="TextClipper" parent="Container/VBoxContainer/AudioSettingsButton/ResizableControl" index="1" unique_id=339528166]
 light_mask = 2
 visibility_layer = 2
 
-[node name="Control" parent="Container/VBoxContainer/AudioSettingsButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="Container/VBoxContainer/AudioSettingsButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="TextClipper" parent="Container/VBoxContainer/AudioSettingsButton/ResizableControl" index="1"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Label" parent="Container/VBoxContainer/AudioSettingsButton/ResizableControl/TextClipper" index="0"]
+[node name="Label" parent="Container/VBoxContainer/AudioSettingsButton/ResizableControl/TextClipper" index="0" unique_id=64156646]
 light_mask = 2
 visibility_layer = 2
 text = "AUDIO"
 
-[node name="VideoSettingsButton" parent="Container/VBoxContainer" instance=ExtResource("2_arv6h")]
+[node name="VideoSettingsButton" parent="Container/VBoxContainer" unique_id=1790058568 instance=ExtResource("2_arv6h")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
 
-[node name="ResizableControl" parent="Container/VBoxContainer/VideoSettingsButton" index="0"]
+[node name="ResizableControl" parent="Container/VBoxContainer/VideoSettingsButton" index="0" unique_id=608558920]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -155,33 +131,21 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Border" parent="Container/VBoxContainer/VideoSettingsButton/ResizableControl" index="0"]
+[node name="TextClipper" parent="Container/VBoxContainer/VideoSettingsButton/ResizableControl" index="1" unique_id=339528166]
 light_mask = 2
 visibility_layer = 2
 
-[node name="Control" parent="Container/VBoxContainer/VideoSettingsButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="Container/VBoxContainer/VideoSettingsButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="TextClipper" parent="Container/VBoxContainer/VideoSettingsButton/ResizableControl" index="1"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Label" parent="Container/VBoxContainer/VideoSettingsButton/ResizableControl/TextClipper" index="0"]
+[node name="Label" parent="Container/VBoxContainer/VideoSettingsButton/ResizableControl/TextClipper" index="0" unique_id=64156646]
 light_mask = 2
 visibility_layer = 2
 text = "VIDEO"
 
-[node name="RebindKeysButton" parent="Container/VBoxContainer" instance=ExtResource("2_arv6h")]
+[node name="RebindKeysButton" parent="Container/VBoxContainer" unique_id=1530701708 instance=ExtResource("2_arv6h")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
 
-[node name="ResizableControl" parent="Container/VBoxContainer/RebindKeysButton" index="0"]
+[node name="ResizableControl" parent="Container/VBoxContainer/RebindKeysButton" index="0" unique_id=608558920]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -193,33 +157,21 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Border" parent="Container/VBoxContainer/RebindKeysButton/ResizableControl" index="0"]
+[node name="TextClipper" parent="Container/VBoxContainer/RebindKeysButton/ResizableControl" index="1" unique_id=339528166]
 light_mask = 2
 visibility_layer = 2
 
-[node name="Control" parent="Container/VBoxContainer/RebindKeysButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="Container/VBoxContainer/RebindKeysButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="TextClipper" parent="Container/VBoxContainer/RebindKeysButton/ResizableControl" index="1"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Label" parent="Container/VBoxContainer/RebindKeysButton/ResizableControl/TextClipper" index="0"]
+[node name="Label" parent="Container/VBoxContainer/RebindKeysButton/ResizableControl/TextClipper" index="0" unique_id=64156646]
 light_mask = 2
 visibility_layer = 2
 text = "CONTROLS"
 
-[node name="ReturnButton" parent="Container/VBoxContainer" instance=ExtResource("2_arv6h")]
+[node name="ReturnButton" parent="Container/VBoxContainer" unique_id=220749261 instance=ExtResource("2_arv6h")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
 
-[node name="ResizableControl" parent="Container/VBoxContainer/ReturnButton" index="0"]
+[node name="ResizableControl" parent="Container/VBoxContainer/ReturnButton" index="0" unique_id=608558920]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -231,23 +183,11 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Border" parent="Container/VBoxContainer/ReturnButton/ResizableControl" index="0"]
+[node name="TextClipper" parent="Container/VBoxContainer/ReturnButton/ResizableControl" index="1" unique_id=339528166]
 light_mask = 2
 visibility_layer = 2
 
-[node name="Control" parent="Container/VBoxContainer/ReturnButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="Container/VBoxContainer/ReturnButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="TextClipper" parent="Container/VBoxContainer/ReturnButton/ResizableControl" index="1"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Label" parent="Container/VBoxContainer/ReturnButton/ResizableControl/TextClipper" index="0"]
+[node name="Label" parent="Container/VBoxContainer/ReturnButton/ResizableControl/TextClipper" index="0" unique_id=64156646]
 light_mask = 2
 visibility_layer = 2
 text = "RETURN"

@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="ButtonHoverSettings" load_steps=5 format=3 uid="uid://pxdlfq08bkq1"]
+[gd_resource type="Resource" script_class="ButtonHoverSettings" load_steps=5 format=3]
 
-[ext_resource type="Resource" uid="uid://cbowfskilokn" path="res://addons/UISystem/UISystem/Common/ElementsHoverSettings/OptionsButton/BorderColor.tres" id="1_47ghg"]
+[ext_resource type="Resource" path="res://addons/UISystem/UISystem/Common/ElementsHoverSettings/OptionsButton/BorderColor.tres" id="1_47ghg"]
 [ext_resource type="Script" path="res://addons/UISystem/UISystem/Elements/HoverSettings/ButtonHoverSettings.cs" id="1_twq4d"]
-[ext_resource type="Resource" uid="uid://bb60lv6j7raf8" path="res://addons/UISystem/UISystem/Common/ElementsHoverSettings/OptionsButton/Position.tres" id="2_pkx3o"]
-[ext_resource type="Resource" uid="uid://3df6yhpcwabx" path="res://addons/UISystem/UISystem/Common/ElementsHoverSettings/OptionsButton/Size.tres" id="4_bwoub"]
+[ext_resource type="Resource" path="res://addons/UISystem/UISystem/Common/ElementsHoverSettings/OptionsButton/Position.tres" id="2_pkx3o"]
+[ext_resource type="Resource" path="res://addons/UISystem/UISystem/Common/ElementsHoverSettings/OptionsButton/Size.tres" id="4_bwoub"]
 
 [resource]
 script = ExtResource("1_twq4d")

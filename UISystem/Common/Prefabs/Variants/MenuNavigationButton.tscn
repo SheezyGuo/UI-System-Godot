@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://ck4an0jqn373h"]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://addons/UISystem/UISystem/Elements/ElementViews/ButtonView.cs" id="1_tsrqv"]
-[ext_resource type="Resource" uid="uid://dj5acww1ovp0b" path="res://addons/UISystem/UISystem/Common/ElementsHoverSettings/MenuNavigationButton/HoverSettings.tres" id="2_pe4x4"]
-[ext_resource type="StyleBox" uid="uid://d1gy2bt5uinfv" path="res://addons/UISystem/UISystem/Styles/ButtonShape.tres" id="4_6uuwg"]
-[ext_resource type="Theme" uid="uid://bwj1we86ii4gw" path="res://addons/UISystem/UISystem/Themes/ButtonsFontTheme.tres" id="5_osv58"]
+[ext_resource type="Resource" path="res://addons/UISystem/UISystem/Common/ElementsHoverSettings/MenuNavigationButton/HoverSettings.tres" id="2_pe4x4"]
+[ext_resource type="StyleBox" path="res://addons/UISystem/UISystem/Styles/ButtonShape.tres" id="4_6uuwg"]
+[ext_resource type="Theme" path="res://addons/UISystem/UISystem/Themes/ButtonsFontTheme.tres" id="5_osv58"]
 
 [node name="MenuNavigationButton" type="Button" unique_id=1059024338 node_paths=PackedStringArray("_resizableControl", "_hoverResizableControl", "_innerColor", "_border", "_label")]
 self_modulate = Color(1, 1, 1, 0)

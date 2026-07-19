@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlummbpn4khpc"]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://addons/UISystem/UISystem/MenuSystem/Menus/Main/MainMenuView.cs" id="1_qlhqn"]
-[ext_resource type="PackedScene" uid="uid://ck4an0jqn373h" path="res://addons/UISystem/UISystem/Common/Prefabs/Variants/MenuNavigationButton.tscn" id="2_ox1c7"]
+[ext_resource type="PackedScene" path="res://addons/UISystem/UISystem/Common/Prefabs/Variants/MenuNavigationButton.tscn" id="2_ox1c7"]
 
-[node name="MainMenuView" type="Control" node_paths=PackedStringArray("_playButton", "_optionsButton", "_quitButton", "_fadeObjectsContainer")]
+[node name="MainMenuView" type="Control" unique_id=1940133184 node_paths=PackedStringArray("_playButton", "_optionsButton", "_quitButton", "_fadeObjectsContainer")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 3
@@ -18,7 +18,7 @@ _optionsButton = NodePath("Container/ButtonsContainer/OptionsButton")
 _quitButton = NodePath("Container/ButtonsContainer/QuitButton")
 _fadeObjectsContainer = NodePath("Container")
 
-[node name="Container" type="Control" parent="."]
+[node name="Container" type="Control" parent="." unique_id=1561161837]
 light_mask = 2
 visibility_layer = 2
 clip_contents = true
@@ -29,7 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Container"]
+[node name="Label" type="Label" parent="Container" unique_id=1566943609]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -45,7 +45,7 @@ text = "Main menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="Container"]
+[node name="ButtonsContainer" type="VBoxContainer" parent="Container" unique_id=1546553562]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -61,12 +61,12 @@ grow_horizontal = 2
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
-[node name="PlayButton" parent="Container/ButtonsContainer" instance=ExtResource("2_ox1c7")]
+[node name="PlayButton" parent="Container/ButtonsContainer" unique_id=541222860 instance=ExtResource("2_ox1c7")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
 
-[node name="ResizableControl" parent="Container/ButtonsContainer/PlayButton" index="0"]
+[node name="ResizableControl" parent="Container/ButtonsContainer/PlayButton" index="0" unique_id=608558920]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -78,33 +78,21 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Border" parent="Container/ButtonsContainer/PlayButton/ResizableControl" index="0"]
+[node name="TextClipper" parent="Container/ButtonsContainer/PlayButton/ResizableControl" index="1" unique_id=339528166]
 light_mask = 2
 visibility_layer = 2
 
-[node name="Control" parent="Container/ButtonsContainer/PlayButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="Container/ButtonsContainer/PlayButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="TextClipper" parent="Container/ButtonsContainer/PlayButton/ResizableControl" index="1"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Label" parent="Container/ButtonsContainer/PlayButton/ResizableControl/TextClipper" index="0"]
+[node name="Label" parent="Container/ButtonsContainer/PlayButton/ResizableControl/TextClipper" index="0" unique_id=64156646]
 light_mask = 2
 visibility_layer = 2
 text = "PLAY"
 
-[node name="OptionsButton" parent="Container/ButtonsContainer" instance=ExtResource("2_ox1c7")]
+[node name="OptionsButton" parent="Container/ButtonsContainer" unique_id=91160116 instance=ExtResource("2_ox1c7")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
 
-[node name="ResizableControl" parent="Container/ButtonsContainer/OptionsButton" index="0"]
+[node name="ResizableControl" parent="Container/ButtonsContainer/OptionsButton" index="0" unique_id=608558920]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -116,33 +104,21 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Border" parent="Container/ButtonsContainer/OptionsButton/ResizableControl" index="0"]
+[node name="TextClipper" parent="Container/ButtonsContainer/OptionsButton/ResizableControl" index="1" unique_id=339528166]
 light_mask = 2
 visibility_layer = 2
 
-[node name="Control" parent="Container/ButtonsContainer/OptionsButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="Container/ButtonsContainer/OptionsButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="TextClipper" parent="Container/ButtonsContainer/OptionsButton/ResizableControl" index="1"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Label" parent="Container/ButtonsContainer/OptionsButton/ResizableControl/TextClipper" index="0"]
+[node name="Label" parent="Container/ButtonsContainer/OptionsButton/ResizableControl/TextClipper" index="0" unique_id=64156646]
 light_mask = 2
 visibility_layer = 2
 text = "OPTIONS"
 
-[node name="QuitButton" parent="Container/ButtonsContainer" instance=ExtResource("2_ox1c7")]
+[node name="QuitButton" parent="Container/ButtonsContainer" unique_id=2017580751 instance=ExtResource("2_ox1c7")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
 
-[node name="ResizableControl" parent="Container/ButtonsContainer/QuitButton" index="0"]
+[node name="ResizableControl" parent="Container/ButtonsContainer/QuitButton" index="0" unique_id=608558920]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -154,23 +130,11 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Border" parent="Container/ButtonsContainer/QuitButton/ResizableControl" index="0"]
+[node name="TextClipper" parent="Container/ButtonsContainer/QuitButton/ResizableControl" index="1" unique_id=339528166]
 light_mask = 2
 visibility_layer = 2
 
-[node name="Control" parent="Container/ButtonsContainer/QuitButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="Container/ButtonsContainer/QuitButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="TextClipper" parent="Container/ButtonsContainer/QuitButton/ResizableControl" index="1"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Label" parent="Container/ButtonsContainer/QuitButton/ResizableControl/TextClipper" index="0"]
+[node name="Label" parent="Container/ButtonsContainer/QuitButton/ResizableControl/TextClipper" index="0" unique_id=64156646]
 light_mask = 2
 visibility_layer = 2
 text = "QUIT"

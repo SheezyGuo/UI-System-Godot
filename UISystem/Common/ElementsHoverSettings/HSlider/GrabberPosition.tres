@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PositionTweenSettings" load_steps=2 format=3 uid="uid://bgkxvmu7uv87p"]
+[gd_resource type="Resource" script_class="PositionTweenSettings" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://addons/UISystem/UISystem/Hovering/PositionTweenSettings.cs" id="1_q0xua"]
 

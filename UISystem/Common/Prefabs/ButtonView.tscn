@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvtey7pkj2tdr"]
+[gd_scene format=3]
 
-[ext_resource type="Theme" uid="uid://bwj1we86ii4gw" path="res://addons/UISystem/UISystem/Themes/ButtonsFontTheme.tres" id="4_sffel"]
-[ext_resource type="StyleBox" uid="uid://d1gy2bt5uinfv" path="res://addons/UISystem/UISystem/Styles/ButtonShape.tres" id="4_td8np"]
+[ext_resource type="Theme" path="res://addons/UISystem/UISystem/Themes/ButtonsFontTheme.tres" id="4_sffel"]
+[ext_resource type="StyleBox" path="res://addons/UISystem/UISystem/Styles/ButtonShape.tres" id="4_td8np"]
 
-[node name="ResizableControl" type="Control"]
+[node name="ResizableControl" type="Control" unique_id=39768179]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 450.0
 offset_bottom = 90.0
 mouse_filter = 2
 
-[node name="Border" type="PanelContainer" parent="."]
+[node name="Border" type="PanelContainer" parent="." unique_id=462205051]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,11 +20,11 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("4_td8np")
 
-[node name="Control" type="Control" parent="Border"]
+[node name="Control" type="Control" parent="Border" unique_id=1642693032]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="InsideColor" type="PanelContainer" parent="Border/Control"]
+[node name="InsideColor" type="PanelContainer" parent="Border/Control" unique_id=1414079671]
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -39,7 +39,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("4_td8np")
 
-[node name="LabelMask" type="Control" parent="."]
+[node name="LabelMask" type="Control" parent="." unique_id=12430778]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -53,7 +53,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="LabelMask"]
+[node name="Label" type="Label" parent="LabelMask" unique_id=1079929667]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5

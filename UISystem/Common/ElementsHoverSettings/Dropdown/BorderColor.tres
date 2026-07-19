@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ColorTweenSettings" load_steps=2 format=3 uid="uid://cwy3443w5wlcn"]
+[gd_resource type="Resource" script_class="ColorTweenSettings" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://addons/UISystem/UISystem/Hovering/ColorTweenSettings.cs" id="1_3pfhu"]
 

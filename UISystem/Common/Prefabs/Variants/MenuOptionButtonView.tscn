@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://b0ifhq3dslldh"]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://addons/UISystem/UISystem/Elements/ElementViews/ButtonView.cs" id="1_8a4pk"]
-[ext_resource type="Resource" uid="uid://pxdlfq08bkq1" path="res://addons/UISystem/UISystem/Common/ElementsHoverSettings/OptionsButton/HoverSettings.tres" id="2_wpts1"]
-[ext_resource type="StyleBox" uid="uid://d1gy2bt5uinfv" path="res://addons/UISystem/UISystem/Styles/ButtonShape.tres" id="4_e2svh"]
-[ext_resource type="Theme" uid="uid://bwj1we86ii4gw" path="res://addons/UISystem/UISystem/Themes/ButtonsFontTheme.tres" id="5_ru2ho"]
+[ext_resource type="Resource" path="res://addons/UISystem/UISystem/Common/ElementsHoverSettings/OptionsButton/HoverSettings.tres" id="2_wpts1"]
+[ext_resource type="StyleBox" path="res://addons/UISystem/UISystem/Styles/ButtonShape.tres" id="4_e2svh"]
+[ext_resource type="Theme" path="res://addons/UISystem/UISystem/Themes/ButtonsFontTheme.tres" id="5_ru2ho"]
 
 [node name="OptionButtonView" type="Button" unique_id=338952109 node_paths=PackedStringArray("_resizableControl", "_hoverResizableControl", "_innerColor", "_border", "_label")]
 self_modulate = Color(1, 1, 1, 0)

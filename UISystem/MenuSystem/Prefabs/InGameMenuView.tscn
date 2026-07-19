@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfy7wvjugk741"]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://addons/UISystem/UISystem/MenuSystem/Menus/InGame/InGameMenuView.cs" id="1_yoo8i"]
 
-[node name="InGameMenuView" type="Control" node_paths=PackedStringArray("_fadeObjectsContainer")]
+[node name="InGameMenuView" type="Control" unique_id=2037208067 node_paths=PackedStringArray("_fadeObjectsContainer")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 3
@@ -14,7 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_yoo8i")
 _fadeObjectsContainer = NodePath("Container")
 
-[node name="Container" type="Control" parent="."]
+[node name="Container" type="Control" parent="." unique_id=349149329]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -24,7 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Container"]
+[node name="Label" type="Label" parent="Container" unique_id=964031462]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1

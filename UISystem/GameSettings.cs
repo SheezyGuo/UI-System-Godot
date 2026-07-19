@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using Godot;
 using UISystem.Common.Enums;
@@ -213,6 +213,8 @@ public class GameSettings
         for (int i = 0; i < savedKeys.Length; i++)
         {
             var action = savedKeys[i];
+            if (!InputMap.HasAction(action)) continue;
+
             Godot.Collections.Array<InputEvent> events = (Godot.Collections.Array<InputEvent>)_config.GetValue(ConfigData.KeysSectionName, action);
 
             InputMap.ActionEraseEvents(action);
@@ -233,6 +235,8 @@ public class GameSettings
 
     private void SetInputInConfig(string action)
     {
+        if (!InputMap.HasAction(action)) return;
+
         var events = InputMap.ActionGetEvents(action);
         _config.SetValue(ConfigData.KeysSectionName, action, events);
     }

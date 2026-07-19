@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d17aklpjxkdtf"]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://addons/UISystem/UISystem/GameInstaller.cs" id="1_kvqrg"]
 
-[node name="DefaultScene" type="Node2D"]
+[node name="DefaultScene" type="Node2D" unique_id=121619066]
 
-[node name="GameInstaller" type="Node" parent="."]
+[node name="GameInstaller" type="Node" parent="." unique_id=591099382]
 script = ExtResource("1_kvqrg")

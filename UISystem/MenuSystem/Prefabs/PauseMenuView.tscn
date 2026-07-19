@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs7t6acp3yhci"]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://addons/UISystem/UISystem/MenuSystem/Menus/Pause/PauseMenuView.cs" id="1_wuqlt"]
-[ext_resource type="PackedScene" uid="uid://ck4an0jqn373h" path="res://addons/UISystem/UISystem/Common/Prefabs/Variants/MenuNavigationButton.tscn" id="2_gndws"]
+[ext_resource type="PackedScene" path="res://addons/UISystem/UISystem/Common/Prefabs/Variants/MenuNavigationButton.tscn" id="2_gndws"]
 
-[node name="PauseMenuView" type="Control" node_paths=PackedStringArray("_resumeGameButton", "_optionsButton", "_returnToMainMenuButton", "_fadeObjectsContainer")]
+[node name="PauseMenuView" type="Control" unique_id=1319781019 node_paths=PackedStringArray("_resumeGameButton", "_optionsButton", "_returnToMainMenuButton", "_fadeObjectsContainer")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 3
@@ -18,7 +18,7 @@ _optionsButton = NodePath("Container/VBoxContainer/OptionsButton")
 _returnToMainMenuButton = NodePath("Container/VBoxContainer/ReturnToMainMenuButton")
 _fadeObjectsContainer = NodePath("Container")
 
-[node name="Container" type="Control" parent="."]
+[node name="Container" type="Control" parent="." unique_id=1430010584]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -28,7 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Container"]
+[node name="Label" type="Label" parent="Container" unique_id=1963992295]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -44,7 +44,7 @@ text = "Pause menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Container" unique_id=2004452082]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -60,12 +60,12 @@ grow_horizontal = 2
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
-[node name="ResumeButton" parent="Container/VBoxContainer" instance=ExtResource("2_gndws")]
+[node name="ResumeButton" parent="Container/VBoxContainer" unique_id=868701885 instance=ExtResource("2_gndws")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
 
-[node name="ResizableControl" parent="Container/VBoxContainer/ResumeButton" index="0"]
+[node name="ResizableControl" parent="Container/VBoxContainer/ResumeButton" index="0" unique_id=608558920]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -77,33 +77,21 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Border" parent="Container/VBoxContainer/ResumeButton/ResizableControl" index="0"]
+[node name="TextClipper" parent="Container/VBoxContainer/ResumeButton/ResizableControl" index="1" unique_id=339528166]
 light_mask = 2
 visibility_layer = 2
 
-[node name="Control" parent="Container/VBoxContainer/ResumeButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="Container/VBoxContainer/ResumeButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="TextClipper" parent="Container/VBoxContainer/ResumeButton/ResizableControl" index="1"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Label" parent="Container/VBoxContainer/ResumeButton/ResizableControl/TextClipper" index="0"]
+[node name="Label" parent="Container/VBoxContainer/ResumeButton/ResizableControl/TextClipper" index="0" unique_id=64156646]
 light_mask = 2
 visibility_layer = 2
 text = "RESUME"
 
-[node name="OptionsButton" parent="Container/VBoxContainer" instance=ExtResource("2_gndws")]
+[node name="OptionsButton" parent="Container/VBoxContainer" unique_id=886517979 instance=ExtResource("2_gndws")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
 
-[node name="ResizableControl" parent="Container/VBoxContainer/OptionsButton" index="0"]
+[node name="ResizableControl" parent="Container/VBoxContainer/OptionsButton" index="0" unique_id=608558920]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -115,33 +103,21 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Border" parent="Container/VBoxContainer/OptionsButton/ResizableControl" index="0"]
+[node name="TextClipper" parent="Container/VBoxContainer/OptionsButton/ResizableControl" index="1" unique_id=339528166]
 light_mask = 2
 visibility_layer = 2
 
-[node name="Control" parent="Container/VBoxContainer/OptionsButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="Container/VBoxContainer/OptionsButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="TextClipper" parent="Container/VBoxContainer/OptionsButton/ResizableControl" index="1"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Label" parent="Container/VBoxContainer/OptionsButton/ResizableControl/TextClipper" index="0"]
+[node name="Label" parent="Container/VBoxContainer/OptionsButton/ResizableControl/TextClipper" index="0" unique_id=64156646]
 light_mask = 2
 visibility_layer = 2
 text = "OPTIONS"
 
-[node name="ReturnToMainMenuButton" parent="Container/VBoxContainer" instance=ExtResource("2_gndws")]
+[node name="ReturnToMainMenuButton" parent="Container/VBoxContainer" unique_id=185386222 instance=ExtResource("2_gndws")]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
 
-[node name="ResizableControl" parent="Container/VBoxContainer/ReturnToMainMenuButton" index="0"]
+[node name="ResizableControl" parent="Container/VBoxContainer/ReturnToMainMenuButton" index="0" unique_id=608558920]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -153,23 +129,11 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Border" parent="Container/VBoxContainer/ReturnToMainMenuButton/ResizableControl" index="0"]
+[node name="TextClipper" parent="Container/VBoxContainer/ReturnToMainMenuButton/ResizableControl" index="1" unique_id=339528166]
 light_mask = 2
 visibility_layer = 2
 
-[node name="Control" parent="Container/VBoxContainer/ReturnToMainMenuButton/ResizableControl/Border" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="InsideColor" parent="Container/VBoxContainer/ReturnToMainMenuButton/ResizableControl/Border/Control" index="0"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="TextClipper" parent="Container/VBoxContainer/ReturnToMainMenuButton/ResizableControl" index="1"]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Label" parent="Container/VBoxContainer/ReturnToMainMenuButton/ResizableControl/TextClipper" index="0"]
+[node name="Label" parent="Container/VBoxContainer/ReturnToMainMenuButton/ResizableControl/TextClipper" index="0" unique_id=64156646]
 light_mask = 2
 visibility_layer = 2
 text = "MAIN MENU"

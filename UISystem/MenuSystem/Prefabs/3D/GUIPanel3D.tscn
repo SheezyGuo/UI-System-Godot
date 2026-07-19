@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cq5278lo5txm8"]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://addons/UISystem/UISystem/MenuSystem/3D/GuiPanel3D.cs" id="1_s31ks"]
 
@@ -17,7 +17,7 @@ albedo_texture = SubResource("ViewportTexture_m3af8")
 [sub_resource type="BoxShape3D" id="4"]
 size = Vector3(1.6, 0.9, 0.1)
 
-[node name="GUIPanel3D" type="Node3D" node_paths=PackedStringArray("_subViewport", "_quad", "_area3d", "_menusParent", "_popupsParent")]
+[node name="GUIPanel3D" type="Node3D" unique_id=2010894290 node_paths=PackedStringArray("_subViewport", "_quad", "_area3d", "_menusParent", "_popupsParent")]
 process_mode = 3
 script = ExtResource("1_s31ks")
 _subViewport = NodePath("SubViewport")
@@ -26,14 +26,14 @@ _area3d = NodePath("Quad/Area3D")
 _menusParent = NodePath("SubViewport/MenusParent")
 _popupsParent = NodePath("SubViewport/PopupsParent")
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1250392867]
 transparent_bg = true
 gui_embed_subwindows = true
 canvas_cull_mask = 4293918722
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="MenusParent" type="Control" parent="SubViewport"]
+[node name="MenusParent" type="Control" parent="SubViewport" unique_id=1340376652]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 3
@@ -42,7 +42,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
 
-[node name="PopupsParent" type="Control" parent="SubViewport"]
+[node name="PopupsParent" type="Control" parent="SubViewport" unique_id=575792611]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 3
@@ -51,19 +51,19 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
 
-[node name="Quad" type="MeshInstance3D" parent="."]
+[node name="Quad" type="MeshInstance3D" parent="." unique_id=2126444062]
 layers = 2
 mesh = SubResource("1")
 surface_material_override/0 = SubResource("StandardMaterial3D_a2rca")
 
-[node name="Area3D" type="Area3D" parent="Quad"]
+[node name="Area3D" type="Area3D" parent="Quad" unique_id=751141359]
 collision_layer = 2
 collision_mask = 2
 input_capture_on_drag = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Quad/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quad/Area3D" unique_id=243768248]
 shape = SubResource("4")
 
-[node name="UICamera3D" type="Camera3D" parent="."]
+[node name="UICamera3D" type="Camera3D" parent="." unique_id=934417651]
 transform = Transform3D(0.897081, 0, -0.441866, 0, 1, 0, 0.441866, 0, 0.897081, -0.560406, 5.96046e-08, 0.88008)
 cull_mask = 2

@@ -1,12 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b02xnc3swcbfg"]
+[gd_scene format=3]
 
-[ext_resource type="Theme" uid="uid://p3e6ki5xgue4" path="res://addons/UISystem/UISystem/Themes/DropdownButtonTheme.tres" id="1_1jsjw"]
+[ext_resource type="Theme" path="res://addons/UISystem/UISystem/Themes/DropdownButtonTheme.tres" id="1_1jsjw"]
 [ext_resource type="Script" path="res://addons/UISystem/UISystem/Elements/ElementViews/DropdownView.cs" id="1_623xw"]
-[ext_resource type="Resource" uid="uid://b01oed40pvom6" path="res://addons/UISystem/UISystem/Common/ElementsHoverSettings/Dropdown/HoverSettings.tres" id="2_6eh7u"]
-[ext_resource type="StyleBox" uid="uid://nqg1m8r4efan" path="res://addons/UISystem/UISystem/Styles/DropdownShape.tres" id="4_uw6i0"]
-[ext_resource type="Theme" uid="uid://bwj1we86ii4gw" path="res://addons/UISystem/UISystem/Themes/ButtonsFontTheme.tres" id="5_1o05n"]
+[ext_resource type="Resource" path="res://addons/UISystem/UISystem/Common/ElementsHoverSettings/Dropdown/HoverSettings.tres" id="2_6eh7u"]
+[ext_resource type="StyleBox" path="res://addons/UISystem/UISystem/Styles/DropdownShape.tres" id="4_uw6i0"]
+[ext_resource type="Theme" path="res://addons/UISystem/UISystem/Themes/ButtonsFontTheme.tres" id="5_1o05n"]
 
-[node name="DropdownView" type="OptionButton" node_paths=PackedStringArray("resizableControl", "innerColor", "border", "label")]
+[node name="DropdownView" type="OptionButton" unique_id=1360099154 node_paths=PackedStringArray("resizableControl", "innerColor", "border", "label")]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(300, 0)
 offset_right = 342.0
@@ -25,14 +25,14 @@ innerColor = NodePath("ResizableControl/Border/Control/InsideColor")
 border = NodePath("ResizableControl/Border")
 label = NodePath("ResizableControl/TextClipper/Label")
 
-[node name="ResizableControl" type="Control" parent="."]
+[node name="ResizableControl" type="Control" parent="." unique_id=1803356438]
 layout_mode = 1
 anchors_preset = 0
 offset_right = 342.0
 offset_bottom = 90.0
 mouse_filter = 2
 
-[node name="Border" type="PanelContainer" parent="ResizableControl"]
+[node name="Border" type="PanelContainer" parent="ResizableControl" unique_id=1923924178]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,11 +42,11 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("4_uw6i0")
 
-[node name="Control" type="Control" parent="ResizableControl/Border"]
+[node name="Control" type="Control" parent="ResizableControl/Border" unique_id=33874148]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="InsideColor" type="PanelContainer" parent="ResizableControl/Border/Control"]
+[node name="InsideColor" type="PanelContainer" parent="ResizableControl/Border/Control" unique_id=529269766]
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -61,7 +61,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("4_uw6i0")
 
-[node name="TextClipper" type="Control" parent="ResizableControl"]
+[node name="TextClipper" type="Control" parent="ResizableControl" unique_id=1124782030]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -75,7 +75,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="ResizableControl/TextClipper"]
+[node name="Label" type="Label" parent="ResizableControl/TextClipper" unique_id=1802573204]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
