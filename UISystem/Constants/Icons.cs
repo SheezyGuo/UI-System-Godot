@@ -1,4 +1,4 @@
-﻿using Godot;
+using Godot;
 using UISystem.Common.Constants;
 using UISystem.Common.Enums;
 
@@ -12,7 +12,7 @@ public static class Icons
     /// <summary>
     /// Ellipsis image path.
     /// </summary>
-    public const string EllipsisImage = "res://UISystem/Textures/Inputs/ellipsis.png";
+    public const string EllipsisImage = "res://addons/UISystem/UISystem/Textures/Inputs/ellipsis.png";
 
     /// <summary>
     /// Gets the icon for the input event.

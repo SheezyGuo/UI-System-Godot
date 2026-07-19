@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UISystem.MenuSystem.Views;
 
@@ -24,7 +24,7 @@ internal static class MenuViewsPaths
         { typeof(InterfaceSettingsMenuView), InterfaceSettings },
     };
 
-    private const string Folder = "res://UISystem/MenuSystem/Prefabs/";
+    private const string Folder = "res://addons/UISystem/UISystem/MenuSystem/Prefabs/";
 
     private const string Main = Folder + "MainMenuView.tscn";
     private const string InGame = Folder + "InGameMenuView.tscn";

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://d0lqlkxfi5o25"]
 
-[ext_resource type="Script" path="res://UISystem/MenuSystem/Menus/InterfaceSettings/InterfaceSettingsMenuView.cs" id="1_830ao"]
-[ext_resource type="PackedScene" uid="uid://b0ifhq3dslldh" path="res://UISystem/Common/Prefabs/Variants/MenuOptionButtonView.tscn" id="5_212i7"]
-[ext_resource type="PackedScene" uid="uid://b02xnc3swcbfg" path="res://UISystem/Common/Prefabs/DropdownView.tscn" id="5_lrjck"]
+[ext_resource type="Script" path="res://addons/UISystem/UISystem/MenuSystem/Menus/InterfaceSettings/InterfaceSettingsMenuView.cs" id="1_830ao"]
+[ext_resource type="PackedScene" uid="uid://b0ifhq3dslldh" path="res://addons/UISystem/UISystem/Common/Prefabs/Variants/MenuOptionButtonView.tscn" id="5_212i7"]
+[ext_resource type="PackedScene" uid="uid://b02xnc3swcbfg" path="res://addons/UISystem/UISystem/Common/Prefabs/DropdownView.tscn" id="5_lrjck"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_uwy47"]
 

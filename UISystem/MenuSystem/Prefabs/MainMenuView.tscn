@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dlummbpn4khpc"]
 
-[ext_resource type="Script" path="res://UISystem/MenuSystem/Menus/Main/MainMenuView.cs" id="1_qlhqn"]
-[ext_resource type="PackedScene" uid="uid://ck4an0jqn373h" path="res://UISystem/Common/Prefabs/Variants/MenuNavigationButton.tscn" id="2_ox1c7"]
+[ext_resource type="Script" path="res://addons/UISystem/UISystem/MenuSystem/Menus/Main/MainMenuView.cs" id="1_qlhqn"]
+[ext_resource type="PackedScene" uid="uid://ck4an0jqn373h" path="res://addons/UISystem/UISystem/Common/Prefabs/Variants/MenuNavigationButton.tscn" id="2_ox1c7"]
 
 [node name="MainMenuView" type="Control" node_paths=PackedStringArray("_playButton", "_optionsButton", "_quitButton", "_fadeObjectsContainer")]
 light_mask = 2

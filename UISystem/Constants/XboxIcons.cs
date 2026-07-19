@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Godot;
 
 namespace UISystem.Common.Constants;
@@ -44,7 +44,7 @@ public static class XboxIcons
             { JoyAxis.RightY, "xbox_stick_r_up.png" },
         };
 
-    private static string ItemsFolder => "res://UISystem/Textures/Inputs/Xbox/";
+    private static string ItemsFolder => "res://addons/UISystem/UISystem/Textures/Inputs/Xbox/";
 
     /// <summary>
     /// Gets buttons icon.

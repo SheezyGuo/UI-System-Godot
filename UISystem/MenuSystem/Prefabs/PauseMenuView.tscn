@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bs7t6acp3yhci"]
 
-[ext_resource type="Script" path="res://UISystem/MenuSystem/Menus/Pause/PauseMenuView.cs" id="1_wuqlt"]
-[ext_resource type="PackedScene" uid="uid://ck4an0jqn373h" path="res://UISystem/Common/Prefabs/Variants/MenuNavigationButton.tscn" id="2_gndws"]
+[ext_resource type="Script" path="res://addons/UISystem/UISystem/MenuSystem/Menus/Pause/PauseMenuView.cs" id="1_wuqlt"]
+[ext_resource type="PackedScene" uid="uid://ck4an0jqn373h" path="res://addons/UISystem/UISystem/Common/Prefabs/Variants/MenuNavigationButton.tscn" id="2_gndws"]
 
 [node name="PauseMenuView" type="Control" node_paths=PackedStringArray("_resumeGameButton", "_optionsButton", "_returnToMainMenuButton", "_fadeObjectsContainer")]
 light_mask = 2

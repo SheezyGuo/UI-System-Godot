@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvtey7pkj2tdr"]
 
-[ext_resource type="Theme" uid="uid://bwj1we86ii4gw" path="res://UISystem/Themes/ButtonsFontTheme.tres" id="4_sffel"]
-[ext_resource type="StyleBox" uid="uid://d1gy2bt5uinfv" path="res://UISystem/Styles/ButtonShape.tres" id="4_td8np"]
+[ext_resource type="Theme" uid="uid://bwj1we86ii4gw" path="res://addons/UISystem/UISystem/Themes/ButtonsFontTheme.tres" id="4_sffel"]
+[ext_resource type="StyleBox" uid="uid://d1gy2bt5uinfv" path="res://addons/UISystem/UISystem/Styles/ButtonShape.tres" id="4_td8np"]
 
 [node name="ResizableControl" type="Control"]
 layout_mode = 3

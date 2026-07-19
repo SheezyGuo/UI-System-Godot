@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UISystem.PopupSystem.Popups.Views;
 
@@ -19,7 +19,7 @@ internal static class PopupViewsPaths
         { typeof(YesNoCancelPopupView), YesNoCancel },
     };
 
-    private const string Folder = "res://UISystem/PopupSystem/Prefabs/";
+    private const string Folder = "res://addons/UISystem/UISystem/PopupSystem/Prefabs/";
 
     private const string Yes = Folder + "YesPopupView.tscn";
     private const string YesNo = Folder + "YesNoPopupView.tscn";

@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0ifhq3dslldh"]
+[gd_scene format=3 uid="uid://b0ifhq3dslldh"]
 
-[ext_resource type="Script" path="res://UISystem/Elements/ElementViews/ButtonView.cs" id="1_8a4pk"]
-[ext_resource type="Resource" uid="uid://pxdlfq08bkq1" path="res://UISystem/Common/ElementsHoverSettings/OptionsButton/HoverSettings.tres" id="2_wpts1"]
-[ext_resource type="StyleBox" uid="uid://d1gy2bt5uinfv" path="res://UISystem/Styles/ButtonShape.tres" id="4_e2svh"]
-[ext_resource type="Theme" uid="uid://bwj1we86ii4gw" path="res://UISystem/Themes/ButtonsFontTheme.tres" id="5_ru2ho"]
+[ext_resource type="Script" path="res://addons/UISystem/UISystem/Elements/ElementViews/ButtonView.cs" id="1_8a4pk"]
+[ext_resource type="Resource" uid="uid://pxdlfq08bkq1" path="res://addons/UISystem/UISystem/Common/ElementsHoverSettings/OptionsButton/HoverSettings.tres" id="2_wpts1"]
+[ext_resource type="StyleBox" uid="uid://d1gy2bt5uinfv" path="res://addons/UISystem/UISystem/Styles/ButtonShape.tres" id="4_e2svh"]
+[ext_resource type="Theme" uid="uid://bwj1we86ii4gw" path="res://addons/UISystem/UISystem/Themes/ButtonsFontTheme.tres" id="5_ru2ho"]
 
-[node name="OptionButtonView" type="Button" node_paths=PackedStringArray("_resizableControl", "_hoverResizableControl", "_innerColor", "_border", "_label")]
+[node name="OptionButtonView" type="Button" unique_id=338952109 node_paths=PackedStringArray("_resizableControl", "_hoverResizableControl", "_innerColor", "_border", "_label")]
 self_modulate = Color(1, 1, 1, 0)
 offset_right = 300.0
 offset_bottom = 90.0
@@ -20,14 +20,14 @@ _innerColor = NodePath("ResizableControl/HoverResizableControl/Border/Control/In
 _border = NodePath("ResizableControl/HoverResizableControl/Border")
 _label = NodePath("ResizableControl/ContentClipper/Label")
 
-[node name="ResizableControl" type="Control" parent="."]
+[node name="ResizableControl" type="Control" parent="." unique_id=97067540]
 layout_mode = 1
 anchors_preset = 0
 offset_right = 300.0
 offset_bottom = 90.0
 mouse_filter = 2
 
-[node name="HoverResizableControl" type="Control" parent="ResizableControl"]
+[node name="HoverResizableControl" type="Control" parent="ResizableControl" unique_id=436233856]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -38,7 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Border" type="PanelContainer" parent="ResizableControl/HoverResizableControl"]
+[node name="Border" type="PanelContainer" parent="ResizableControl/HoverResizableControl" unique_id=693563156]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,11 +48,11 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("4_e2svh")
 
-[node name="Control" type="Control" parent="ResizableControl/HoverResizableControl/Border"]
+[node name="Control" type="Control" parent="ResizableControl/HoverResizableControl/Border" unique_id=1842088387]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="InsideColor" type="PanelContainer" parent="ResizableControl/HoverResizableControl/Border/Control"]
+[node name="InsideColor" type="PanelContainer" parent="ResizableControl/HoverResizableControl/Border/Control" unique_id=1380176644]
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -67,7 +67,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("4_e2svh")
 
-[node name="ContentClipper" type="Control" parent="ResizableControl"]
+[node name="ContentClipper" type="Control" parent="ResizableControl" unique_id=46048091]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -81,7 +81,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="ResizableControl/ContentClipper"]
+[node name="Label" type="Label" parent="ResizableControl/ContentClipper" unique_id=1043064773]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5

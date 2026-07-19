@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cv5bjtd0iw8pd"]
 
-[ext_resource type="Script" path="res://UISystem/UiInstaller.cs" id="1_rgp7s"]
-[ext_resource type="PackedScene" uid="uid://cq5278lo5txm8" path="res://UISystem/MenuSystem/Prefabs/3D/GUIPanel3D.tscn" id="3_ufqt6"]
-[ext_resource type="Script" path="res://UISystem/ScreenFade/ScreenFadeManager.cs" id="4_mlvp7"]
+[ext_resource type="Script" path="res://addons/UISystem/UISystem/UiInstaller.cs" id="1_rgp7s"]
+[ext_resource type="PackedScene" uid="uid://cq5278lo5txm8" path="res://addons/UISystem/UISystem/MenuSystem/Prefabs/3D/GUIPanel3D.tscn" id="3_ufqt6"]
+[ext_resource type="Script" path="res://addons/UISystem/UISystem/ScreenFade/ScreenFadeManager.cs" id="4_mlvp7"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_w1hrq"]
 

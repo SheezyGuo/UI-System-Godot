@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Godot;
 
 namespace UISystem.Common.Constants;
@@ -116,7 +116,7 @@ public static class KeyboardIcons
             { Key.Asciitilde, "keyboard_tilde.png" },
         };
 
-    private static string ItemsFolder => "res://UISystem/Textures/Inputs/Keyboard/";
+    private static string ItemsFolder => "res://addons/UISystem/UISystem/Textures/Inputs/Keyboard/";
 
     /// <summary>
     /// Gets the keyboard icon name.

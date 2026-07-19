@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Godot;
 
 namespace UISystem.Common.Constants;
@@ -17,7 +17,7 @@ public static class MouseIcons
             { MouseButton.WheelDown, "mouse_scroll_down.png" },
         };
 
-    private static string ItemsFolder => "res://UISystem/Textures/Inputs/Keyboard/";
+    private static string ItemsFolder => "res://addons/UISystem/UISystem/Textures/Inputs/Keyboard/";
 
     /// <summary>
     /// Gets the mouse button icon.
